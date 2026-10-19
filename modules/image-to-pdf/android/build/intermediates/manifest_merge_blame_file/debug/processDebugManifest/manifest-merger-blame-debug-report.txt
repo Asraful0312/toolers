@@ -1,0 +1,14 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="expo.modules.imagetopdf" >
+4
+5    <uses-sdk android:minSdkVersion="24" />
+6
+7    <uses-permission
+7-->E:\mobile apps\toolers\modules\image-to-pdf\android\src\main\AndroidManifest.xml:3:3-106
+8        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+8-->E:\mobile apps\toolers\modules\image-to-pdf\android\src\main\AndroidManifest.xml:3:20-76
+9        android:maxSdkVersion="28" />
+9-->E:\mobile apps\toolers\modules\image-to-pdf\android\src\main\AndroidManifest.xml:3:77-103
+10
+11</manifest>

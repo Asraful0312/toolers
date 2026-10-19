@@ -1,7 +1,7 @@
 import { MaterialIcons } from '@expo/vector-icons';
 import { Tabs } from 'expo-router';
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet } from 'react-native';
 
 import { HapticTab } from '@/components/haptic-tab';
 import { Colors } from '@/constants/Colors';
@@ -46,25 +46,6 @@ export default function TabLayout() {
           title: 'Saved',
           tabBarIcon: ({ color }) => <MaterialIcons size={24} name="favorite" color={color} />,
         }}
-      />
-      <Tabs.Screen
-        name="mic"
-        options={{
-          title: '',
-          tabBarIcon: ({ color }) => (
-            <View style={styles.micButton}>
-              <MaterialIcons size={28} name="mic" color="white" />
-            </View>
-          ),
-          tabBarLabel: () => null,
-        }}
-        listeners={() => ({
-          tabPress: (e) => {
-            e.preventDefault();
-            // Handle mic press (e.g., open modal)
-            alert('Mic pressed');
-          },
-        })}
       />
       <Tabs.Screen
         name="recent"

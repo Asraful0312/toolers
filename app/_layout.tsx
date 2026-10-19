@@ -1,9 +1,11 @@
 import { DarkTheme, DefaultTheme, ThemeProvider as NavigationThemeProvider } from '@react-navigation/native';
 import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import 'react-native-reanimated';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
+import { AdProvider } from '@/context/AdContext';
 import { StorageProvider } from '@/context/StorageContext';
 import { ThemeProvider, useTheme } from '@/context/ThemeContext';
 import { ToastProvider } from '@/context/ToastContext';
@@ -18,14 +20,16 @@ function RootLayoutNav() {
   return (
     <NavigationThemeProvider value={theme === 'dark' ? DarkTheme : DefaultTheme}>
       <StorageProvider>
-        <ToastProvider>
-          <Stack>
-            <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-            <Stack.Screen name="category/[id]" options={{ headerShown: true }} />
-            <Stack.Screen name="tool/[id]" options={{ headerShown: true }} />
-            <Stack.Screen name="modal" options={{ presentation: 'modal', title: 'Modal' }} />
-          </Stack>
-        </ToastProvider>
+        <AdProvider>
+          <ToastProvider>
+            <Stack screenOptions={{ headerShadowVisible: false }}>
+              <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+              <Stack.Screen name="category/[id]" options={{ headerShown: true }} />
+              <Stack.Screen name="tool/[id]" options={{ headerShown: true }} />
+              <Stack.Screen name="modal" options={{ presentation: 'modal', title: 'Modal' }} />
+            </Stack>
+          </ToastProvider>
+        </AdProvider>
       </StorageProvider>
       <StatusBar style={theme === 'dark' ? 'light' : 'dark'} />
     </NavigationThemeProvider>
@@ -34,11 +38,13 @@ function RootLayoutNav() {
 
 export default function RootLayout() {
   return (
-    <SafeAreaProvider>
-      <ThemeProvider>
-        <RootLayoutNav />
-      </ThemeProvider>
-    </SafeAreaProvider>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <SafeAreaProvider>
+        <ThemeProvider>
+          <RootLayoutNav />
+        </ThemeProvider>
+      </SafeAreaProvider>
+    </GestureHandlerRootView>
   );
 }
 

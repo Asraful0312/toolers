@@ -1,3 +1,4 @@
+import AdBanner from '@/components/AdBanner';
 import { CATEGORIES, TOOLS } from '@/constants/ToolsData';
 import { useThemeColor } from '@/hooks/useThemeColor';
 import { MaterialIcons } from '@expo/vector-icons';
@@ -60,7 +61,7 @@ export default function CategoryScreen() {
           </View>
         </View>
 
-        <ScrollView contentContainerStyle={styles.contentContainer}>
+        <ScrollView contentContainerStyle={styles.contentContainer} style={{ flex: 1 }}>
           {/* Header */}
           <View style={styles.header}>
             <View style={[styles.iconContainer, { backgroundColor: category.bg }]}>
@@ -100,6 +101,7 @@ export default function CategoryScreen() {
             )}
           </View>
         </ScrollView>
+        <AdBanner />
       </View>
     </>
   );

@@ -1,0 +1,5 @@
+{
+  "name": "image-to-pdf",
+  "version": "1.0.0",
+  "main": "index.ts"
+}
